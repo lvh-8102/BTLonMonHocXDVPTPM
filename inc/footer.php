@@ -1,0 +1,68 @@
+    <!-- Footer -->
+        <div class="back-color-white color-black border-radius border-1-grey padding-10-0 tuy-chon-tai-khoan" id="tai-khoan" style="z-index: 3000;">
+                <div class="flex cursor color-main-1 padding-0-2 border-bottom-1">
+                    <span class="material-symbols-outlined" style="font-size: 30px">account_circle</span>&nbsp;
+                    <?php echo $dieuHuongTaiKhoan ?>
+                </div>
+                <?php
+                    if($tenDangNhap == null){
+                ?>
+                <div class="flex padding-10-2">
+                    <h5>Hoặc</h5>&nbsp;
+                    <a class="a" href="<?php echo $redirect ?>dang-ky.php"><h5>Đăng ký</h5></a>
+                </div>
+                <?php
+                    }else{
+                ?>
+
+                <div class="padding-10-0">
+                    <div class="cursor menu-tai-khoan">
+                        <a class="a" href="">
+                            <div class="flex">
+                                <span class="material-symbols-outlined">chevron_right</span>
+                                <h5>Quản lý tài khoản</h5>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="cursor menu-tai-khoan">
+                        <a class="a" href="">
+                            <div class="flex">
+                                <span class="material-symbols-outlined">chevron_right</span>
+                                <h5>Đăng tin</h5>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="cursor menu-tai-khoan">
+                        <a class="a" href="">
+                            <div class="flex">
+                                <span class="material-symbols-outlined">chevron_right</span>
+                                <h5>Quản lý tin đăng</h5>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="cursor menu-tai-khoan">
+                        <a class="a" href="">
+                            <div class="flex">
+                                <span class="material-symbols-outlined">chevron_right</span>
+                                <h5>Tin đăng đã lưu</h5>
+                            </div>
+                        </a>
+                    </div>
+                    <br>
+
+                    <div class="flex color-delete cursor padding-0-2 float-right">
+                        <span class="material-symbols-outlined">logout</span>&nbsp;
+                        <h5>Đăng xuất</h5>
+                    </div>
+                </div>
+
+                <?php
+                    }
+                ?>
+            </div>
+
+        <footer style="">
+        </footer>
+    <div>
+</body>
+</html>
