@@ -2,7 +2,7 @@
 	<div class="flex" onclick="dieuHuong('chi-tiet-tin-dang.php?id=<?php echo $row['MaTinDang'] ?>')">
 	<!-- Thumbnail -->
 		<div class="">
-			<img src="img/thumbnail-demo.jpg" width="200px" height="200px">
+			<img src="img/tin-dang/<?php if($row['Img1'] != '') echo $row['Img1']; else echo 'thumbnail-icon.png'; ?>" width="200px" height="200px">
 		</div>
 
 	<!-- Noi dung -->
@@ -16,7 +16,7 @@
 			<div class="flex">
 				<span class="material-symbols-outlined">apartment</span>&nbsp;
 				<?php
-					$dsKhuVucTinDangQuery = mysqli_query($conn, "Select * From khuvuctindang inner join khuvuc on khuvuctindang.MaKhuVuc=khuvuc.MaKhuVuc Where MaTinDang='".$row['MaTinDang']."'");
+					$dsKhuVucTinDangQuery = mysqli_query($conn, "Select TenKhuVuc From khuvuctindang inner join khuvuc on khuvuctindang.MaKhuVuc=khuvuc.MaKhuVuc Where MaTinDang='".$row['MaTinDang']."'");
 					if($dsKhuVucTinDangQuery->num_rows>0){
 						while($dsKhuVucTinDang = $dsKhuVucTinDangQuery->fetch_assoc()){
 							echo '
@@ -57,7 +57,7 @@
 	<?php
 			}else{
 	?>
-	<span class="color-delete" id="<?php echo $row['MaTinDang'] ?>" title="Lưu lại" onclick="luuTinDang('<?php echo $row['MaTinDang'] ?>','Lưu')" style="font-size: 20px;"><i class="far fa-heart"></i></span>
+	<span class="color-delete" id="<?php echo $row['MaTinDang'] ?>" title="Lưu lại" onclick="luuTinDang('<?php echo $row['MaTinDang'] ?>','Lưu', '')" style="font-size: 20px;"><i class="far fa-heart"></i></span>
 	<?php
 			}
 	?>

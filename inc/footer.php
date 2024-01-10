@@ -17,7 +17,7 @@
 
                 <div class="padding-10-0">
                     <div class="cursor menu-tai-khoan">
-                        <a class="a" href="">
+                        <a class="a" href="<?php echo $redirect ?>quan-ly-tai-khoan">
                             <div class="flex">
                                 <span class="material-symbols-outlined">chevron_right</span>
                                 <h5>Quản lý tài khoản</h5>
@@ -25,7 +25,7 @@
                         </a>
                     </div>
                     <div class="cursor menu-tai-khoan">
-                        <a class="a" href="">
+                        <a class="a" href="<?php echo $redirect ?>quan-ly-tai-khoan/dang-tin.php">
                             <div class="flex">
                                 <span class="material-symbols-outlined">chevron_right</span>
                                 <h5>Đăng tin</h5>
@@ -33,7 +33,7 @@
                         </a>
                     </div>
                     <div class="cursor menu-tai-khoan">
-                        <a class="a" href="">
+                        <a class="a" href="<?php echo $redirect ?>quan-ly-tai-khoan/tin-dang.php">
                             <div class="flex">
                                 <span class="material-symbols-outlined">chevron_right</span>
                                 <h5>Quản lý tin đăng</h5>
@@ -41,7 +41,7 @@
                         </a>
                     </div>
                     <div class="cursor menu-tai-khoan">
-                        <a class="a" href="">
+                        <a class="a" href="<?php echo $redirect ?>quan-ly-tai-khoan/tin-dang-da-luu.php">
                             <div class="flex">
                                 <span class="material-symbols-outlined">chevron_right</span>
                                 <h5>Tin đăng đã lưu</h5>
@@ -50,7 +50,7 @@
                     </div>
                     <br>
 
-                    <div class="flex color-delete cursor padding-0-2 float-right">
+                    <div class="flex color-delete cursor padding-0-2 float-right" onclick="dangXuat('<?php echo $redirect ?>')">
                         <span class="material-symbols-outlined">logout</span>&nbsp;
                         <h5>Đăng xuất</h5>
                     </div>

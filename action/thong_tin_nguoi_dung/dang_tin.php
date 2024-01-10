@@ -19,7 +19,14 @@
             $tenFile3 = '';
 
         $sql = "Insert Into tindang(MaTinDang, TieuDeTinDang, SDTLienHe, DiaChiThue, DienTich, GiaThue, MoTaTinDang, Img1, Img2, Img3, ThoiGianDang, TenTaiKhoan, MaQuan) Values('$maTinDang', '".$_POST['tieu-de']."', '".$_POST['sdt']."', '".$_POST['dia-chi']."', ".$_POST['dien-tich'].", ".$_POST['gia-thue'].", '".$_POST['mo-ta']."', '$tenFile1', '$tenFile2', '$tenFile3', '".$_POST['thoi-gian']."', '".$_SESSION['ten-dang-nhap']."', '".$_POST['quan']."')";
-        $result = $conn->query($sql);
+        $result1 = $conn->query($sql);
+
+        if($_POST['dia-diem-1'] != '')
+            $result2 = $conn->query("Insert Into khuvuctindang(MaTinDang ,MaKhuVuc) Values('$maTinDang', '".$_POST['dia-diem-1']."')");
+        if($_POST['dia-diem-2'] != '')
+            $result2 = $conn->query("Insert Into khuvuctindang(MaTinDang ,MaKhuVuc) Values('$maTinDang', '".$_POST['dia-diem-2']."')");
+        if($_POST['dia-diem-3'] != '')
+            $result2 = $conn->query("Insert Into khuvuctindang(MaTinDang ,MaKhuVuc) Values('$maTinDang', '".$_POST['dia-diem-3']."')");
         header("Location: ../../quan-ly-tai-khoan/tin-dang.php");
     }
 ?>

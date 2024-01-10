@@ -1,5 +1,5 @@
 <?php
-    $redirect = "../";
+	$redirect = "../";
 	require "../inc/head.php";
 ?>
 

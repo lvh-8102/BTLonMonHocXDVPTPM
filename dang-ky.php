@@ -10,6 +10,9 @@
 	<div class="page">
 		<div class="width-100 back-color-main-1">
 			<div class="dang-nhap">
+				<div id="message-dang-ky">
+					
+				</div>
 				<h2 class="text-center">Đăng ký tài khoản</h2>
 				<br><br><br>
 				<form id="dang-nhap">

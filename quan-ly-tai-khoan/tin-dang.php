@@ -13,11 +13,28 @@
 		
 		<div class="padding-10-2 back-color-white quan-ly-tai-khoan-right float-left">
 			<div>
-				<div class="flex-between border-bottom-1">
-					<h3>Tin đăng</h3>
-					<a href="dang-tin.php"><button class="button back-color-main-2 color-white"><span class="material-symbols-outlined">add</span></button></a>
+				<div class="border-bottom-1">
+					<div class="flex-between">
+						<h3>Tin đăng</h3>
+						<a href="dang-tin.php"><button class="button back-color-main-2 color-white"><span class="material-symbols-outlined">add</span></button></a>
+					</div>
+					<div class="flex padding-10-0">
+						<span class="material-symbols-outlined" style="font-size: 25px;">filter_alt</span>&nbsp;&nbsp;&nbsp;
+						<span id="loc-theo-trang-thai">
+							<input type="radio" name="loc-duyet" id="loc-chua-duyet" value="Chưa duyệt" checked onclick="locTinDangNguoiDung()">
+							<label for="loc-chua-duyet">Chưa duyệt</label>
+							<input type="radio" name="loc-duyet" id="loc-da-duyet" value="Đã duyệt" onclick="locTinDangNguoiDung()">
+							<label for="loc-da-duyet">Đã duyệt</label>
+						</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<span>
+							<select class="select-loc-sapxep" id="loc-theo-thoi-gian" onchange="locTinDangNguoiDung()">
+								<option value="DESC">Mới hơn</option>
+								<option value="ASC">Cũ hơn</option>
+							</select>
+						</span>
+					</div>
 				</div>
-				<table class="table" style="overflow: auto;">
+				<table class="table" style="overflow: auto;" id="ds-tin-dang-nguoi-dung">
 					<tr>
 						<th>
 							Tiêu đề
@@ -34,7 +51,7 @@
 					</tr>
 
 					<?php
-						$tinDangQuery = mysqli_query($conn, "Select * From tindang Where TenTaiKhoan='".$_SESSION['ten-dang-nhap']."'");
+						$tinDangQuery = mysqli_query($conn, "Select MaTinDang,TieuDeTinDang,ThoiGianDang,KiemDuyet From tindang Where TenTaiKhoan='".$_SESSION['ten-dang-nhap']."'");
 						if($tinDangQuery->num_rows>0){
 							while($dsTinDang = $tinDangQuery->fetch_assoc()){
 					?>

@@ -37,7 +37,7 @@
 
 		    <!-- Login -->
 		        <div class="flex">
-		        	<span style="font-size: 30px;" class="material-symbols-outlined item cursor hover-color-main-1">favorite</span>
+		        	<a class="color-white" href="<?php echo $redirect ?>quan-ly-tai-khoan/tin-dang-da-luu.php"><span style="font-size: 30px;" class="material-symbols-outlined item cursor hover-color-main-1">favorite</span></a>
 		        	&nbsp;&nbsp;&nbsp;
 		            <div class="cursor color-white hover-color-main-1" id="button-tai-khoan" style="height: 40px;" onclick="moRong('tai-khoan', 'icon-tai-khoan', 'button-tai-khoan')">
 		                <span style="font-size: 30px;" class="material-symbols-outlined item">account_circle</span>
@@ -51,9 +51,18 @@
 		<!-- Tim kiem -->
 			<div class="margin tim-kiem">
 		        <form method="get" action="<?php if(isset($_GET['danh-muc'])) echo $redirect . 'danh-muc-phong-tro.php'; else echo $redirect . 'index.php'; ?>">
-	        	<?php if(isset($_GET['danh-muc'])){ ?>
+	        	<?php 
+	        		if(isset($_GET['danh-muc'])){
+	        	?>
 	        		<input type="" name="danh-muc" value="<?php echo $_GET['danh-muc'] ?>" hidden>
-	        	<?php } ?>
+	        	<?php
+	        		}
+	        		if(isset($_GET['dia-diem'])){
+	        	?>
+	        	<input type="" name="dia-diem" value="<?php echo $_GET['dia-diem'] ?>" hidden>
+	        	<?php
+	        		}
+	        	?>
 		            <input class="input input-radius-12 input-fs-25" type="" name="tu-khoa" placeholder="Nhập từ khóa...">
 		            <button class="button back-color-main-1 color-white"><span class="material-symbols-outlined">search</span></button>
 		        </form>

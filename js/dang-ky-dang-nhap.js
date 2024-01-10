@@ -14,11 +14,11 @@
 				data: { tenDangNhap: tenDangNhap, matKhau: matKhau },
 				success: function (data) {
 					if(data == 'Đăng nhập thành công!'){
-					document.getElementById('message-dang-nhap').innerHTML = '<div class="back-color-pass color-white message"><h4 class="text-center">'+ data +'</h4></div>';
-					window.location = 'index.php';
-				}
-				else
-					document.getElementById('message-dang-nhap').innerHTML = '<div class="back-color-delete color-white message"><h4 class="text-center">'+ data +'</h4></div>';
+						document.getElementById('message-dang-nhap').innerHTML = '<div class="back-color-pass color-white message"><h4 class="text-center">'+ data +'</h4></div>';
+						window.location = 'index.php';
+					}
+					else
+						document.getElementById('message-dang-nhap').innerHTML = '<div class="back-color-delete color-white message"><h4 class="text-center">'+ data +'</h4></div>';
 				}
 			});
 		}
@@ -40,11 +40,13 @@
 				method: "POST",
 				data: { tenDangNhap: tenDangNhap, matKhau: matKhau },
 				success: function (data) {
-					document.getElementById('message-dang-nhap').textContent = data;
 					if(data == 'Đăng ký thành công!'){
+						document.getElementById('message-dang-ky').innerHTML = '<div class="back-color-pass color-white message"><h4 class="text-center">'+ data +'</h4></div>';
 						document.getElementById('message-dang-nhap').innerHTML = 'Đăng ký thành công! <a class="a" href="dang-nhap.php">Đăng nhập</a>';
 						document.getElementById('dang-nhap').reset();
 					}
+					else
+						document.getElementById('message-dang-ky').innerHTML = '<div class="back-color-delete color-white message"><h4 class="text-center">'+ data +'</h4></div>';
 				}
 			});
 		}

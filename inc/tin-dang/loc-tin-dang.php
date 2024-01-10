@@ -13,7 +13,7 @@
     <!-- Noi dung -->
         <div class="padding-10-0 loc-item" id="loc-tin-dang-theo-gia">
             <div>
-            	<input type="radio" id="loc-theo-gia-tat-ca" name="loc-theo-gia" value="loc-theo-gia-tat-ca" checked onclick="locTinDang('<?php echo $danhMuc ?>', '<?php echo $tuKhoa ?>', '<?php echo $trangSo ?>')">
+            	<input type="radio" id="loc-theo-gia-tat-ca" name="loc-theo-gia" value="loc-theo-gia-tat-ca" checked onclick="locTinDang('<?php echo $danhMuc ?>', '<?php echo $diaDiem ?>', '<?php echo $tuKhoa ?>', 1)">
     			<label for="tat-ca"><h5>Tất cả</h5></label>
     			<br>
             </div>
@@ -22,7 +22,7 @@
         		while($dsLocTheoGia = $dsLocTheoGiaQuery->fetch_assoc()){
         	?>
             <div>
-            	<input type="radio" name="loc-theo-gia" value="<?php echo $dsLocTheoGia['MaLocTheoGia'] ?>" onclick="locTinDang('<?php echo $danhMuc ?>', '<?php echo $tuKhoa ?>', '<?php echo $trangSo ?>')">
+            	<input type="radio" name="loc-theo-gia" value="<?php echo $dsLocTheoGia['MaLocTheoGia'] ?>" onclick="locTinDang('<?php echo $danhMuc ?>', '<?php echo $diaDiem ?>', '<?php echo $tuKhoa ?>', 1)">
     			<label for="<?php echo $dsLocTheoGia['MaLocTheoGia'] ?>"><h5><?php echo $dsLocTheoGia['TenLocTheoGia'] ?></h5></label>
     			<br>
             </div>
@@ -43,7 +43,7 @@
     <!-- Noi dung -->
         <div class="padding-10-0 loc-item" id="loc-tin-dang-theo-dien-tich">
         	<div>
-            	<input type="radio" id="loc-theo-dien-tich-tat-ca" name="loc-theo-dien-tich" value="loc-theo-dien-tich-tat-ca" checked onclick="locTinDang('<?php echo $danhMuc ?>', '<?php echo $tuKhoa ?>', '<?php echo $trangSo ?>')">
+            	<input type="radio" id="loc-theo-dien-tich-tat-ca" name="loc-theo-dien-tich" value="loc-theo-dien-tich-tat-ca" checked onclick="locTinDang('<?php echo $danhMuc ?>', '<?php echo $diaDiem ?>', '<?php echo $tuKhoa ?>', 1)">
     			<label for="loc-theo-dien-tich-tat-ca"><h5>Tất cả</h5></label>
     			<br>
             </div>
@@ -52,7 +52,7 @@
         		while($dsLocTheoDienTich = $dsLocTheoDienTichQuery->fetch_assoc()){
         	?>
             <div>
-            	<input type="radio" name="loc-theo-dien-tich" value="<?php echo $dsLocTheoDienTich['MaLocTheoDienTich'] ?>" onclick="locTinDang('<?php echo $danhMuc ?>', '<?php echo $tuKhoa ?>', '<?php echo $trangSo ?>')">
+            	<input type="radio" name="loc-theo-dien-tich" value="<?php echo $dsLocTheoDienTich['MaLocTheoDienTich'] ?>" onclick="locTinDang('<?php echo $danhMuc ?>', '<?php echo $diaDiem ?>', '<?php echo $tuKhoa ?>', 1)">
     			<label for="<?php echo $dsLocTheoDienTich['MaLocTheoDienTich'] ?>"><h5><?php echo $dsLocTheoDienTich['TenLocTheoDienTich'] ?></h5></label>
     			<br>
             </div>

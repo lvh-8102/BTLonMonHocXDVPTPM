@@ -15,10 +15,12 @@
 						<h5>@<?php echo $_SESSION['ten-dang-nhap'] ?></h5>
 					</div>
 				</div>
-				<span class="material-symbols-outlined cursor hover-color-main-1" style="font-size: 30px;">expand_less</span>
+				<div class="cursor" id="thu-gon-menu-tai-khoan" onclick="thuGon('menu-tai-khoan', 'icon-thu-gon-menu-tai-khoan', 'thu-gon-menu-tai-khoan')">
+					<span class="material-symbols-outlined cursor hover-color-main-1" id="icon-thu-gon-menu-tai-khoan" style="font-size: 30px;">expand_less</span>
+				</div>
 			</div>
 
-			<div class="padding-10-0">
+			<div class="padding-10-0" id="menu-tai-khoan">
 				<div class="cursor menu-tai-khoan">
 					<a class="a flex" href="../quan-ly-tai-khoan">
 						<span class="material-symbols-outlined">chevron_right</span>
@@ -32,7 +34,7 @@
 					</a>
 				</div>
 				<div class="cursor menu-tai-khoan">
-					<a class="a flex" href="">
+					<a class="a flex" href="tin-dang-da-luu.php">
 						<span class="material-symbols-outlined">chevron_right</span>
 						<h4>Đã lưu</h4>
 					</a>

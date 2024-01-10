@@ -38,7 +38,7 @@
 				<textarea class="width-100 textarea" name="dia-chi" required></textarea>
 
 				<label><h5>Khu vực:</h5></label>
-				<select class="width-100 select" name="quan">
+				<select class="width-100 select" name="quan" onchange="getDiaDiem(this)">
 					<?php
 						$danhMucQuery = getDanhMuc($conn);
 						while($danhMuc = $danhMucQuery->fetch_assoc()){
@@ -49,15 +49,26 @@
 					?>
 				</select>
 
+				<label><h5>Địa điểm:</h5></label><br>
+				<select class="width-30 select" id="dia-diem-1" name="dia-diem-1">
+					
+				</select>
+				<select class="width-30 select margin-0-2" id="dia-diem-2" name="dia-diem-2">
+					
+				</select>
+				<select class="width-30 select" id="dia-diem-3" name="dia-diem-3">
+					
+				</select><br><br>
+
 				<label><h5>Mô tả:</h5></label>
 				<textarea class="width-100 textarea" name="mo-ta" style="height: 300px;"></textarea>
 
 				<label><h5>Tải lên hình ảnh:</h5></label><br>
 			<!-- Tai len anh -->
 				<div>
-					<img class="border" id="hien-anh-1" src="../img/img-upload-icon.png" width="30%">
-					<img class="border" id="hien-anh-2" src="../img/img-upload-icon.png" width="30%">
-					<img class="border" id="hien-anh-3" src="../img/img-upload-icon.png" width="30%">	
+					<img class="border" id="hien-anh-1" src="../img/img-upload-icon.jpg" width="30%">
+					<img class="border" id="hien-anh-2" src="../img/img-upload-icon.jpg" width="30%">
+					<img class="border" id="hien-anh-3" src="../img/img-upload-icon.jpg" width="30%">	
 				</div>
 
 				<label class="button back-color-main-2 color-white width-30 text-center" for="anh1">
@@ -88,7 +99,7 @@
 				<br><br>
 
 				<button class="button back-color-main-2 color-white" onclick="document.getElementById('thoi-gian-dang').value = getThoiGian()">Lưu lại</button>
-				<button class="button back-color-main-1 color-white">Đặt lại</button>
+				<button class="button back-color-main-1 color-white" type="button" onclick="taiLaiTrang()">Đặt lại</button>
 			</form>
 		</div>
 

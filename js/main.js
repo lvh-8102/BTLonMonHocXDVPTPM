@@ -17,7 +17,7 @@
 	}
 
 // Loc tin dang
-	function locTinDang(danhMuc, tuKhoa, trangSo) {
+	function locTinDang(danhMuc, diaDiem, tuKhoa, trangSo) {
 		let sapXep = document.getElementById('sap-xep').value;
 
 		let locTheoGia = document.querySelectorAll('#loc-tin-dang-theo-gia input');
@@ -37,7 +37,7 @@
 		$.ajax({
 			url: "action/tin_dang/loc_tin_dang.php",
 			method: "POST",
-			data: { locTheoGia: loc1, locTheoDienTich: loc2, sapXep: sapXep, trangSo: trangSo, danhMuc: danhMuc, tuKhoa: tuKhoa },
+			data: { locTheoGia: loc1, locTheoDienTich: loc2, sapXep: sapXep, trangSo: trangSo, danhMuc: danhMuc, diaDiem: diaDiem, tuKhoa: tuKhoa },
 			success: function (data) {
 				document.getElementById('ds-tin-dang').innerHTML = data;
 			}
@@ -155,11 +155,12 @@ function anHienMatKhau(idInput, idIcon) {
 	}
 }
 
-function luuTinDang(id, trangThai){
+function luuTinDang(id, trangThai, redirect){
+	let thoiGian = getThoiGian();
 	$.ajax({
-		url: "action/tin_dang/luu_tin_dang.php",
+		url: redirect + "action/tin_dang/luu_tin_dang.php",
 		method: "POST",
-		data: { id:id, trangThai:trangThai },
+		data: { id:id, trangThai:trangThai, thoiGian:thoiGian },
 		success: function (data) {
 			let element = document.getElementById(id);
 			if(data == 1){
@@ -167,9 +168,12 @@ function luuTinDang(id, trangThai){
 				element.onclick = function () { luuTinDang(id, 'Bỏ lưu') }
 				element.title = 'Bỏ lưu';
 			}else{
-				element.innerHTML = '<i class="far fa-heart"></i>';
-				element.onclick = function () { luuTinDang(id, 'Lưu') }
-				element.title = 'Lưu lại';
+				if(element != null){
+					element.innerHTML = '<i class="far fa-heart"></i>';
+					element.onclick = function () { luuTinDang(id, 'Lưu') }
+					element.title = 'Lưu lại';
+				}else
+					location.reload();
 			}
 		}
 	});

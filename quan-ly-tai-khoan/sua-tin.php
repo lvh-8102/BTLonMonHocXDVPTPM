@@ -20,6 +20,7 @@
 </script>
 <?php
 	}else{
+		$dsMaKhuVuc = null;
 		while($tinDang = $kTraTinDang->fetch_assoc()){
 			$maTinDang = $tinDang['MaTinDang'];
 			$tieuDe = $tinDang['TieuDeTinDang'];
@@ -33,6 +34,7 @@
 			$img2 = $tinDang['Img2'];
 			$img3 = $tinDang['Img3'];
 		}
+		$dsMaKhuVuc = getSingleListData($conn, "Select MaKhuVuc From khuvuctindang Where MaTinDang='$maTinDang'", "MaKhuVuc");
 	}
 ?>
 		<div class="padding-10-2 back-color-white quan-ly-tai-khoan-right float-left">
@@ -64,7 +66,7 @@
 				<textarea class="width-100 textarea" name="dia-chi" required><?php echo $diaChi?></textarea>
 
 				<label><h5>Khu vực:</h5></label>
-				<select class="width-100 select" name="quan">
+				<select class="width-100 select" name="quan" onchange="getDiaDiem(this)">
 					<?php
 						$danhMucQuery = getDanhMuc($conn);
 						while($danhMuc = $danhMucQuery->fetch_assoc()){
@@ -84,6 +86,68 @@
 					?>
 				</select>
 
+				<?php
+					$dsMaDiaDiem = getSingleListData($conn, "Select MaKhuVuc From khuvuc Where MaQuan='$maQuan'", "MaKhuVuc");
+					$dsTenĐiaDiem = getSingleListData($conn, "Select TenKhuVuc From khuvuc Where MaQuan='$maQuan'", "TenKhuVuc");
+					if($dsMaDiaDiem != null){
+				?>
+				<label><h5>Địa điểm:</h5></label><br>
+				<select class="width-30 select" id="dia-diem-1" name="dia-diem-1">
+					<option value="">Lựa chọn</option>
+					<?php
+						for($i=0; $i<count($dsMaDiaDiem); $i++){
+							if($dsMaDiaDiem[$i] == $dsMaKhuVuc[0]){
+					?>
+					<option value="<?php echo $dsMaDiaDiem[$i] ?>" selected><?php echo $dsTenĐiaDiem[$i] ?></option>
+					<?php
+							}else{
+					?>
+					<option value="<?php echo $dsMaDiaDiem[$i] ?>"><?php echo $dsTenĐiaDiem[$i] ?></option>
+					<?php
+							}
+					?>
+					<?php
+						}
+					?>
+				</select>
+				<select class="width-30 select" id="dia-diem-2" name="dia-diem-2">
+					<option value="">Lựa chọn</option>
+					<?php
+						for($i=0; $i<count($dsMaDiaDiem); $i++){
+							if($dsMaDiaDiem[$i] == $dsMaKhuVuc[1]){
+					?>
+					<option value="<?php echo $dsMaDiaDiem[$i] ?>" selected><?php echo $dsTenĐiaDiem[$i] ?></option>
+					<?php
+							}else{
+					?>
+					<option value="<?php echo $dsMaDiaDiem[$i] ?>"><?php echo $dsTenĐiaDiem[$i] ?></option>
+					<?php
+							}
+					?>
+					<?php
+						}
+					?>
+				</select>
+				<select class="width-30 select" id="dia-diem-3" name="dia-diem-3">
+					<option value="">Lựa chọn</option>
+					<?php
+						for($i=0; $i<count($dsMaDiaDiem); $i++){
+							if($dsMaDiaDiem[$i] == $dsMaKhuVuc[2]){
+					?>
+					<option value="<?php echo $dsMaDiaDiem[$i] ?>" selected><?php echo $dsTenĐiaDiem[$i] ?></option>
+					<?php
+							}else{
+					?>
+					<option value="<?php echo $dsMaDiaDiem[$i] ?>"><?php echo $dsTenĐiaDiem[$i] ?></option>
+					<?php
+							}
+					?>
+					<?php
+						}
+					?>
+				</select><br><br>
+				<?php } ?>
+
 				<label><h5>Mô tả:</h5></label>
 				<textarea class="width-100 textarea" name="mo-ta" style="height: 300px;"><?php echo $moTa ?></textarea>
 
@@ -93,9 +157,9 @@
 				<input type="" name="ten-anh-2-cu" value="<?php echo $img2 ?>" hidden>
 				<input type="" name="ten-anh-3-cu" value="<?php echo $img3 ?>" hidden>
 				<div>
-					<img class="border" id="hien-anh-1" src="<?php if($img1 == '') echo '../img/img-upload-icon.png'; else echo '../img/tin-dang/'.$img1; ?>" width="30%">
-					<img class="border" id="hien-anh-2" src="<?php if($img2 == '') echo '../img/img-upload-icon.png'; else echo '../img/tin-dang/'.$img2; ?>" width="30%">
-					<img class="border" id="hien-anh-3" src="<?php if($img3 == '') echo '../img/img-upload-icon.png'; else echo '../img/tin-dang/'.$img3; ?>" width="30%">	
+					<img class="border" id="hien-anh-1" src="<?php if($img1 == '') echo '../img/img-upload-icon.jpg'; else echo '../img/tin-dang/'.$img1; ?>" width="30%">
+					<img class="border" id="hien-anh-2" src="<?php if($img2 == '') echo '../img/img-upload-icon.jpg'; else echo '../img/tin-dang/'.$img2; ?>" width="30%">
+					<img class="border" id="hien-anh-3" src="<?php if($img3 == '') echo '../img/img-upload-icon.jpg'; else echo '../img/tin-dang/'.$img3; ?>" width="30%">	
 				</div>
 
 				<label class="button back-color-main-2 color-white width-30 text-center" for="anh1">

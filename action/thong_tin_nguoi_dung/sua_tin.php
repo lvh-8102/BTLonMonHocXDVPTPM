@@ -25,7 +25,14 @@
                 unlink('../../img/tin-dang/'.$_POST['ten-anh-3-cu']);
         }
         $sql .= " Where MaTinDang='".$_POST['ma-tin-dang']."'";
-        $result = $conn->query($sql);
+        $result1 = $conn->query($sql);
+        $result2 = $conn->query("Delete From khuvuctindang Where MaTinDang='".$_POST['ma-tin-dang']."'");
+        if($_POST['dia-diem-1'] != '')
+            $result3 = $conn->query("Insert Into khuvuctindang(MaTinDang ,MaKhuVuc) Values('".$_POST['ma-tin-dang']."', '".$_POST['dia-diem-1']."')");
+        if($_POST['dia-diem-2'] != '')
+            $result3 = $conn->query("Insert Into khuvuctindang(MaTinDang ,MaKhuVuc) Values('".$_POST['ma-tin-dang']."', '".$_POST['dia-diem-2']."')");
+        if($_POST['dia-diem-3'] != '')
+            $result3 = $conn->query("Insert Into khuvuctindang(MaTinDang ,MaKhuVuc) Values('".$_POST['ma-tin-dang']."', '".$_POST['dia-diem-3']."')");
         header("Location: ../../quan-ly-tai-khoan/tin-dang.php");
     }
 ?>

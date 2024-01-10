@@ -10,7 +10,7 @@
 
     $danhMuc = null;
     $tuKhoa = null;
-    $trangSo = null;
+    $diaDiem = null;
     if(isset($_GET['tu-khoa']))
         $tuKhoa = $_GET['tu-khoa'];
 ?>
@@ -36,7 +36,7 @@
         <!-- Sap xep -->
             <div class="padding-10-2">
                 <div class="flex-between padding-10-0 border-bottom-1 font-size-20">
-                    <select class="select-loc-sapxep" id="sap-xep" onchange="locTinDang('<?php echo $danhMuc ?>', '<?php echo $tuKhoa ?>', '<?php echo $trangSo ?>')">
+                    <select class="select-loc-sapxep" id="sap-xep" onchange="locTinDang('', '', '<?php echo $tuKhoa ?>', 1)">
                         <option value="Mới hơn">Mới hơn</option>
                         <option value="Cũ hơn">Cũ hơn</option>
                         <option value="Giá thấp hơn">Giá thấp hơn</option>
@@ -69,24 +69,7 @@
                 ?>
 
             <!-- Phan trang -->
-                <div class="phan-trang flex">
-                    <button class="back-color-white border">
-                        <span class="material-symbols-outlined">chevron_left</span>
-                    </button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <?php
-                            for ($i=1; $i <= $soTrang; $i++) { 
-                        ?>
-                    <button class="font-size-20 back-color-white border" onclick="locTinDang('<?php echo $danhMuc ?>', '<?php echo $tuKhoa ?>', '<?php echo $i ?>')"><?php echo $i ?>
-                    </button>
-
-                        <?php
-                            }
-                        ?>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <button class="back-color-white border">
-                        <span class="material-symbols-outlined">chevron_right</span>
-                    </button>
-                </div>
+                <?php require "inc/tin-dang/phan-trang.php"; ?>
             </div>
         </div>
     </div>
