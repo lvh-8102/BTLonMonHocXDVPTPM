@@ -48,7 +48,7 @@
         <!-- DS tin dang -->
             <div class="margin-1" id="ds-tin-dang">
                 <?php
-                	$sqlTinDang = "Select * From tindang inner join khuvucquan on tindang.MaQuan=khuvucquan.MaQuan inner join taikhoan on tindang.TenTaiKhoan=taikhoan.TenTaiKhoan";
+                	$sqlTinDang = "Select * From tindang inner join khuvucquan on tindang.MaQuan=khuvucquan.MaQuan inner join taikhoan on tindang.TenTaiKhoan=taikhoan.TenTaiKhoan Where tindang.KiemDuyet='Đã duyệt'";
                 	if(isset($_GET['tu-khoa'])){
                 ?>
                 <div class="flex">
@@ -56,7 +56,7 @@
                     <a class="a" href="index.php"><h4>Quay lại</h4></a>
                 </div>
                 <?php
-                		$sqlTinDang .= " Where TieuDeTinDang Like '%".$_GET['tu-khoa']."%'";
+                		$sqlTinDang .= " and TieuDeTinDang Like '%".$_GET['tu-khoa']."%'";
                 	}
 
                     $demTinDang = mysqli_query($conn, $sqlTinDang);
