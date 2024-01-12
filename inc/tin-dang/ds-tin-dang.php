@@ -53,16 +53,13 @@
 			$daLuu = mysqli_query($conn, "Select * From tindangdaluu Where MaTinDang = '".$row['MaTinDang']."' and TenTaiKhoan='".$_SESSION['ten-dang-nhap']."'");
 			if($daLuu->num_rows>0){
 	?>
-	<span class="color-delete" id="<?php echo $row['MaTinDang'] ?>" title="Bỏ lưu" onclick="luuTinDang('<?php echo $row['MaTinDang'] ?>','Bỏ lưu')" style="font-size: 20px;"><i class="fas fa-heart"></i></span>
+	<span class="color-delete" id="<?php echo $row['MaTinDang'] ?>" title="Bỏ lưu" onclick="luuTinDang('<?php echo $row['MaTinDang'] ?>','Bỏ lưu', '')" style="font-size: 20px;"><i class="fas fa-heart"></i></span>
 	<?php
 			}else{
 	?>
 	<span class="color-delete" id="<?php echo $row['MaTinDang'] ?>" title="Lưu lại" onclick="luuTinDang('<?php echo $row['MaTinDang'] ?>','Lưu', '')" style="font-size: 20px;"><i class="far fa-heart"></i></span>
 	<?php
 			}
-	?>
-
-	<?php
 		}
 	?>
 </div>
