@@ -21,7 +21,9 @@
 					<div class="flex padding-10-0">
 						<span class="material-symbols-outlined" style="font-size: 25px;">filter_alt</span>&nbsp;&nbsp;&nbsp;
 						<span id="loc-theo-trang-thai">
-							<input type="radio" name="loc-duyet" id="loc-chua-duyet" value="Chưa duyệt" checked onclick="locTinDangNguoiDung()">
+							<input type="radio" name="loc-duyet" id="loc-tat-ca" value="" checked onclick="locTinDangNguoiDung()">
+							<label for="loc-tat-ca">Tất cả</label>
+							<input type="radio" name="loc-duyet" id="loc-chua-duyet" value="Chưa duyệt" onclick="locTinDangNguoiDung()">
 							<label for="loc-chua-duyet">Chưa duyệt</label>
 							<input type="radio" name="loc-duyet" id="loc-da-duyet" value="Đã duyệt" onclick="locTinDangNguoiDung()">
 							<label for="loc-da-duyet">Đã duyệt</label>
