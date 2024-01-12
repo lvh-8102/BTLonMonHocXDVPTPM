@@ -6,7 +6,7 @@
 	$danhMuc = null;
 	$diaDiem = null;
 
-	$sql = "Select * From tindang inner join khuvucquan on tindang.MaQuan=khuvucquan.MaQuan inner join taikhoan on tindang.TenTaiKhoan=taikhoan.TenTaiKhoan Where MaTinDang Like '%%'";
+	$sql = "Select * From tindang inner join khuvucquan on tindang.MaQuan=khuvucquan.MaQuan inner join taikhoan on tindang.TenTaiKhoan=taikhoan.TenTaiKhoan Where tindang.KiemDuyet='Đã duyệt'";
 
 // Loc
 	if($_SERVER['REQUEST_METHOD'] == 'POST'){
