@@ -75,24 +75,36 @@
         <button class="back-color-white border" <?php if($_POST['trangSo'] == 1) echo 'disabled' ?> onclick="locTinDang('<?php echo $danhMuc ?>', '<?php echo $diaDiem ?>', '<?php echo $tuKhoa ?>', <?php echo $_POST['trangSo']-1 ?>)">
             <span class="material-symbols-outlined">chevron_left</span>
         </button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <?php
-                for ($i=1; $i <= $soTrang; $i++) { 
-                	if($i == $_POST['trangSo']){
-            ?>
+		<?php
+			for ($i=1; $i <= $soTrang; $i++) { 
+				if($i == $_POST['trangSo']){
+		?>
         <button class="font-size-20 back-color-main-1 color-white border" onclick="locTinDang('<?php echo $danhMuc ?>', '<?php echo $diaDiem ?>', '<?php echo $tuKhoa ?>', <?php echo $i ?>)"><?php echo $i ?>
         </button>
 
-            <?php
-            		}else{
-        	?>
+		<?php
+				}else{
+		?>
         <button class="font-size-20 back-color-white border" onclick="locTinDang('<?php echo $danhMuc ?>', '<?php echo $diaDiem ?>', '<?php echo $tuKhoa ?>', <?php echo $i ?>)"><?php echo $i ?>
         </button>
-        	<?php
-            		}
-                }
-            ?>
+		<?php
+				}
+			}
+		?>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <button class="back-color-white border" onclick="locTinDang('<?php echo $_POST['danhMuc'] ?>', '<?php echo $diaDiem ?>', '<?php echo $_POST['tuKhoa'] ?>', <?php echo $_POST['trangSo']+1 ?>)">
+		<?php
+			if($_POST['trangSo'] != $soTrang){
+		?>
+		<button class="back-color-white border" onclick="locTinDang('<?php echo $_POST['danhMuc'] ?>', '<?php echo $diaDiem ?>', '<?php echo $_POST['tuKhoa'] ?>', <?php echo $_POST['trangSo']+1 ?>)">
             <span class="material-symbols-outlined">chevron_right</span>
         </button>
+		<?php
+			}else{
+		?>
+		<button class="back-color-white border" disabled>
+            <span class="material-symbols-outlined">chevron_right</span>
+        </button>
+		<?php
+			}
+		?>
     </div>
