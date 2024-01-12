@@ -17,7 +17,10 @@
     include("../../function/function.php");
     session_start();
 
-    $sql = "Select MaTinDang,TieuDeTinDang,ThoiGianDang,KiemDuyet From tindang Where TenTaiKhoan='".$_SESSION['ten-dang-nhap']."' and KiemDuyet='".$_POST['locTheoTrangThai']."' Order By ThoiGianDang ".$_POST['locTheoThoiGian'];
+	$sql = "Select MaTinDang,TieuDeTinDang,ThoiGianDang,KiemDuyet From tindang Where TenTaiKhoan='".$_SESSION['ten-dang-nhap']."'";
+	if($_POST['locTheoTrangThai'] != '')
+    	$sql .= " and KiemDuyet='".$_POST['locTheoTrangThai']."'";
+	$sql .= " Order By ThoiGianDang ".$_POST['locTheoThoiGian'];
     $tinDangQuery = mysqli_query($conn, $sql);
     if($tinDangQuery->num_rows>0){
 		while($dsTinDang = $tinDangQuery->fetch_assoc()){
