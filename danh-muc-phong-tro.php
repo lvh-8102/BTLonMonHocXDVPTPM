@@ -79,9 +79,9 @@
                     <a class="a" href="danh-muc-phong-tro.php?danh-muc=<?php echo $_GET['danh-muc'] ?>"><h4>Quay lại</h4></a>
                 </div>
                 <?php
-                        $sqlTinDang = "Select * From khuvuctindang inner join khuvuc On khuvuctindang.MaKhuVuc=khuvuc.MaKhuVuc inner join tindang On khuvuctindang.MaTinDang=tindang.MaTinDang inner join khuvucquan On khuvucquan.MaQuan=tindang.MaQuan Where khuvuc.TenKhuVuc='".$_GET['dia-diem']."'";
+                        $sqlTinDang = "Select * From khuvuctindang inner join khuvuc On khuvuctindang.MaKhuVuc=khuvuc.MaKhuVuc inner join tindang On khuvuctindang.MaTinDang=tindang.MaTinDang inner join khuvucquan On khuvucquan.MaQuan=tindang.MaQuan Where khuvuc.TenKhuVuc='".$_GET['dia-diem']."' and tindang.KiemDuyet='Đã duyệt'";
                     }else
-                        $sqlTinDang = "Select * From tindang inner join khuvucquan on tindang.MaQuan=khuvucquan.MaQuan inner join taikhoan on tindang.TenTaiKhoan=taikhoan.TenTaiKhoan Where khuvucquan.TenQuan='$danhMuc'";
+                        $sqlTinDang = "Select * From tindang inner join khuvucquan on tindang.MaQuan=khuvucquan.MaQuan inner join taikhoan on tindang.TenTaiKhoan=taikhoan.TenTaiKhoan Where khuvucquan.TenQuan='$danhMuc' and tindang.KiemDuyet='Đã duyệt'";
                     if(isset($_GET['tu-khoa'])){
                 ?>
 
