@@ -2,10 +2,6 @@
 	include($redirect."database/db.php");
 	include($redirect."function/function.php");
 	session_start();
-
-	if(isset($_SESSION['loai-tai-khoan']) && $_SESSION['loai-tai-khoan'] == 'admin')
-        header("Location:" . $redirect . "admin");
-    echo $_SESSION['loai-tai-khoan'];
 ?>
 <!DOCTYPE html>
 <html>

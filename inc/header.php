@@ -8,6 +8,8 @@
 		if(isset($_SESSION['ten-dang-nhap'])){
 			$tenDangNhap = $_SESSION['ten-dang-nhap'];
 			$dieuHuongTaiKhoan = '<a class="a color-main-1" href="'.$redirect.'quan-ly-tai-khoan"><h4>'.$tenDangNhap.'</h4></a>';
+			if($_SESSION['loai-tai-khoan'] == 'admin')
+        		header("Location:" . $redirect . "admin");
 		}
 	?>
 	<div class="page">
