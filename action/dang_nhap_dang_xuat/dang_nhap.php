@@ -15,6 +15,7 @@
             else{
                 echo('Đăng nhập thành công!');
                 $_SESSION['ten-dang-nhap'] = $_POST['tenDangNhap'];
+                $_SESSION['loai-tai-khoan'] = $_POST['LoaiTaiKhoan'];
             }
 
         }
