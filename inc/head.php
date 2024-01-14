@@ -4,7 +4,7 @@
 	session_start();
 
 	if(isset($_SESSION['loai-tai-khoan']) && $_SESSION['loai-tai-khoan'] == 'admin')
-        header("Location: admin");
+        header("Location:" . $redirect . "admin");
     echo $_SESSION['loai-tai-khoan'];
 ?>
 <!DOCTYPE html>
