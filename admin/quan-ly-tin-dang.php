@@ -41,11 +41,12 @@
                                                     <th scope="col">Số điện thoại</th>
                                                     <th scope="col">Địa chỉ</th>
                                                     <th scope="col">Trạng thái</th>
-                                                    <th scope="col">Thao tác</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-
+                                                <?php
+                                                    $dsTinDangQuery = mysqli_query($conn, 'Select * From tindang');
+                                                ?>
                                                 <!-- Bài đăng Đã duyệt -->
                                                 <tr>
                                                     <th scope="row">1</th>
