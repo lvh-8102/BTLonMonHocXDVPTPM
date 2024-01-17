@@ -1,3 +1,13 @@
+<?php
+    $redirect = '../';
+    include($redirect."database/db.php");
+	include($redirect."function/function.php");
+    session_start();
+    if(!isset($_SESSION['ten-dang-nhap']))
+        header("Location: " . $redirect . "dang-nhap.php");
+    if($_SESSION['loai-tai-khoan'] == 'user')
+        header("Location: " . $redirect . "index.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,22 +29,23 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
 
+    <script src="../js/main.js"></script>
     <script src="../js/admin.js"></script>
 </head>
 <body>
-    <div>
-        <section id="menu-left">
-            <nav class="navbar-primary">
-                <a href="#" class="btn-expand-collapse"><i class="fa-solid fa-circle-xmark"></i></a>
-                <ul class="navbar-primary-menu nav nav-pills">
-                    <li>
-                        <a href="#"><img src="../asset/images/logofita.png" alt=""><span class="nav-label">Fita - Vnua</span></a>
-                    </li>
-                    <li class="focused-item">
-                        <a href="#user" data-toggle="tab" class="tab-link"><i class="fa-solid fa-calendar-days"></i><span class="nav-label">Quản lý tài khoản</span></a>
-                    </li>
-                    <li>
-                        <a href="#post" data-toggle="tab" class="tab-link"><i class="fa-solid fa-calendar-day"></i><span class="nav-label">Quản lý bài đăng</span></a>
-                    </li>
-                </ul>
-            </nav>
+    <section id="menu-left">
+        <nav class="navbar-primary">
+            <a href="#" class="btn-expand-collapse"><i class="fa-solid fa-circle-xmark"></i></a>
+            <ul class="navbar-primary-menu nav nav-pills">
+                <li>
+                    <a href="#"><img src="../asset/images/logofita.png" alt=""><span class="nav-label">Fita - Vnua</span></a>
+                </li>
+                <li class="focused-item">
+                    <a href="index.php" data-toggle="tab" class="tab-link"><i class="fa-solid fa-calendar-days"></i><span class="nav-label">Quản lý tài khoản</span></a>
+                </li>
+                <li>
+                    <a href="quan-ly-tin-dang.php" data-toggle="tab" class="tab-link"><i class="fa-solid fa-calendar-day"></i><span class="nav-label">Quản lý bài đăng</span></a>
+                </li>
+                <li><button onclick="dangXuat('<?php echo $redirect ?>')">Đăng xuất</button></li>
+            </ul>
+        </nav>
